@@ -37,7 +37,6 @@ android {
 }
 
 dependencies {
-    def nav_version = "2.5.3"
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.0'
@@ -53,11 +52,11 @@ dependencies {
     //view pager
     implementation 'androidx.viewpager2:viewpager2:1.1.0-beta01'
 
+    def nav_version = "2.5.3"
     //navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     //lotti animation
-    def lottieVersion = "3.4.0"
-    implementation "com.airbnb.android:lottie:$lottieVersion"
+    implementation 'com.airbnb.android:lottie:3.4.0'
 }

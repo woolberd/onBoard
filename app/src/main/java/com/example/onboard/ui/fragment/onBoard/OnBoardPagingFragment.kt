@@ -25,14 +25,24 @@ class OnBoardPagingFragment : Fragment() {
         initialize()
     }
 
-    private fun initialize() {
-        when(requireArguments().getInt(ARG_ONBOARD_PAGE_POSITION)){
-
+    private fun initialize() = with(binding) {
+        when (requireArguments().getInt(ARG_ONBOARD_PAGE_POSITION)) {
+            0 -> {
+                lottie.setAnimation(R.raw.lottie1)
+                tvText.text = "Очень удобный функционал"
+            }
+            1 -> {
+                lottie.setAnimation(R.raw.lottie2)
+                tvText.text = "Быстрый, качественный продукт"
+            }
+            2 -> {
+                lottie.setAnimation(R.raw.lottie3)
+                tvText.text = "Куча функций и интересных фишек"
+            }
         }
+    }
 
-        }
-
-    companion object{
+    companion object {
         const val ARG_ONBOARD_PAGE_POSITION = "OnBoardPage"
     }
 }
