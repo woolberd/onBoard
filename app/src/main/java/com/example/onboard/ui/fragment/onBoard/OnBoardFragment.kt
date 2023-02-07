@@ -1,20 +1,24 @@
 package com.example.onboard.ui.fragment.onBoard
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.onboard.R
 import com.example.onboard.databinding.FragmentOnBoardBinding
 import com.example.onboard.ui.adapter.OnBoardViewPagerAdapter
+import com.example.onboard.utils.PreferenceHelper
+import kotlin.Int
+import kotlin.with
 
 class OnBoardFragment : Fragment() {
 
     private lateinit var binding: FragmentOnBoardBinding
+    private val preferenceHelper = PreferenceHelper()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +37,8 @@ class OnBoardFragment : Fragment() {
     private fun initialize() = with(binding) {
         viewPager.adapter = OnBoardViewPagerAdapter(this@OnBoardFragment)
         dotsIndicator.attachTo(viewPager)
+        preferenceHelper.unit(requireContext())
+        preferenceHelper.onceBoard = true
     }
 
     private fun setupListener() = with(binding.viewPager) {
