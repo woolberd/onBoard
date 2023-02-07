@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".ui.fragment.noteApp.detail.NoteAppDetailFragment">
+
+    <TextView
+        android:id="@+id/tv_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/arrow"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="data" />
+
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextClock
+        android:id="@+id/tv_clock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/time"
+        android:textColor="#E6E6E6"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@id/tv_data"
+        app:layout_constraintTop_toTopOf="@id/tv_data" />
+
+    <EditText
+        android:id="@+id/edit_text1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_data" />
+
+    <EditText
+        android:id="@+id/edit_text2"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:gravity="top"
+        android:textColor="@color/white"
+        android:textColorHint="#4DFFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/edit_text1" />
+
+    <TextView
+        android:id="@+id/send_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/add"
+        android:textColor="#FF9800"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+            <RadioButton
+                android:id="@+id/btn_radio_first"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/rounder2"
+                android:backgroundTint="#191919"
+                android:padding="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <RadioButton
+                android:id="@+id/btn_second"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/rounder2"
+                android:backgroundTint="#EDEFDD"
+                android:gravity="center"
+                android:padding="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btn_radio_first" />
+
+            <RadioButton
+                android:id="@+id/btn_third"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/rounder2"
+                android:backgroundTint="#DF770909"
+                android:padding="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btn_second" />
+
+    </RadioGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>

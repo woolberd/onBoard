@@ -1,14 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.NoteAppFragment">
+    android:background="@color/black"
+    tools:context=".ui.fragment.noteApp.NoteAppFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_note_app"
+        android:layout_width="410dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#191919"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="410dp"
+            android:layout_height="60dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/noteApp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_baseline_menu_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/shape"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/shape2"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <EditText
+        android:id="@+id/search_note_app"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="15sp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/rounder2"
+        android:backgroundTint="#191919"
+        android:drawableStart="@drawable/ic_baseline_search_24"
+        android:drawablePadding="5dp"
+        android:hint="@string/search"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="#746F6F"
+        app:layout_constraintEnd_toEndOf="@id/card_view_note_app"
+        app:layout_constraintStart_toStartOf="@id/card_view_note_app"
+        app:layout_constraintTop_toBottomOf="@id/card_view_note_app" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_to_third_frag_lang"
+        android:layout_width="70dp"
+        android:layout_height="75dp"
+        android:layout_margin="10dp"
+        android:backgroundTint="#FF9800"
+        android:text="@string/plus"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:cornerRadius="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_note_app" />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
