@@ -5,7 +5,7 @@ import androidx.room.Room
 import com.example.onboard.data.db.AppDataBase
 import com.example.onboard.utils.PreferenceHelper
 
-class App : Application() {
+class App: Application() {
 
     companion object {
         val preferenceHelper = PreferenceHelper()
