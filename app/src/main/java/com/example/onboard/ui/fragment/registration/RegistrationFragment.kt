@@ -36,28 +36,33 @@ class RegistrationFragment : Fragment() {
     }
 
     private fun setupListener() = with(binding) {
-        btnGetCode.setOnLongClickListener {
-            startPhoneNumberVerification(firstEt.text.toString())
-            true
+        btnGetCode.setOnClickListener {
+            if (firstEt.text.isEmpty()) {
+                firstEt.error = "Заполните поле"
+            } else {
+                startPhoneNumberVerification(firstEt.text.toString())
+            }
         }
         btnConfirm.setOnClickListener {
-            verifyPhoneNumberWithCode(storeVerificationId.toString(), secondEt.text.toString())
+            if (secondEt.text.isEmpty()) {
+                secondEt.error = "Заполните поле"
+            } else {
+                verifyPhoneNumberWithCode(storeVerificationId.toString(), secondEt.text.toString())
+            }
         }
     }
-
 
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
-                    findNavController().navigate(R.id.noteAppFragment)
+                    findNavController().navigate(R.id.action_registrationFragment_to_noteAppFragment)
                 } else {
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
                         Toast.makeText(requireContext(), "Registration is not", Toast.LENGTH_SHORT)
                             .show()
                     }
                 }
-
             }
     }
 
@@ -69,7 +74,7 @@ class RegistrationFragment : Fragment() {
     private fun startPhoneNumberVerification(phoneNumber: String) {
         val options = PhoneAuthOptions.newBuilder(auth)
             .setPhoneNumber(phoneNumber)     //Phone number to verify
-            .setTimeout(60L,java.util.concurrent.TimeUnit.SECONDS)   //Timeout unit
+            .setTimeout(60L, java.util.concurrent.TimeUnit.SECONDS)   //Timeout unit
             .setActivity(requireActivity())      //Activity (for callback binding)
             .setCallbacks(callback)       //OnVerificationStateChangedCallbacks
             .build()
@@ -82,8 +87,7 @@ class RegistrationFragment : Fragment() {
             signInWithPhoneAuthCredential(credential)
         }
 
-        override fun onVerificationFailed(p0: FirebaseException) {
-        }
+        override fun onVerificationFailed(p0: FirebaseException) {}
 
         override fun onCodeSent(
             verificationId: String,

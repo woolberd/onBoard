@@ -14,4 +14,8 @@ class PreferenceHelper {
     var onceBoard: Boolean
         get() = sharedPreferences.getBoolean("key", false)
         set(value) = sharedPreferences.edit().putBoolean("key", value).apply()
+
+    var registration: Boolean
+        get() = sharedPreferences.getBoolean("registration",false)
+        set(value) = sharedPreferences.edit().putBoolean("registration",value).apply()
 }

@@ -1,27 +1,24 @@
 package com.example.onboard.ui.adapter
 
 import android.graphics.Color
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.Dao
 import com.example.onboard.databinding.ItemLinearBinding
 import com.example.onboard.models.NoteAppModel
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 
-class NoteAppAdapter(val onItemClick: (model: NoteAppModel) -> Unit): RecyclerView.Adapter<NoteAppAdapter.ViewHolder>() {
+class NoteAppAdapter(val onItemClick: (model: NoteAppModel) -> Unit) :
+    RecyclerView.Adapter<NoteAppAdapter.ViewHolder>() {
 
     private var list: List<NoteAppModel> = ArrayList()
 
-    fun setList(list: List<NoteAppModel>){
+    fun setList(list: List<NoteAppModel>) {
         this.list = list
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(private var binding: ItemLinearBinding ): RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private var binding: ItemLinearBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         init {
             itemView.setOnLongClickListener {
@@ -29,6 +26,7 @@ class NoteAppAdapter(val onItemClick: (model: NoteAppModel) -> Unit): RecyclerVi
                 true
             }
         }
+
         fun onBind(model: NoteAppModel) {
             binding.cardView.setCardBackgroundColor(Color.parseColor(model.color))
             binding.bigTextView.text = model.title
@@ -38,7 +36,13 @@ class NoteAppAdapter(val onItemClick: (model: NoteAppModel) -> Unit): RecyclerVi
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ItemLinearBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return ViewHolder(
+            ItemLinearBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

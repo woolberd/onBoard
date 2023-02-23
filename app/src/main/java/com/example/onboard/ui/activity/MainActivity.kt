@@ -3,6 +3,7 @@ package com.example.onboard.ui.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.onboard.App
 import com.example.onboard.R
@@ -25,11 +26,13 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        if (App.preferenceHelper.onceBoard) {
+        if (App.preferenceHelper.onceBoard && App.preferenceHelper.registration) {
             navController.navigate(R.id.noteAppFragment)
+        } else if (App.preferenceHelper.onceBoard) {
+            navController.navigate(R.id.registrationFragment)
         } else {
             navController.navigate(R.id.onBoardFragment)
-        }
+         }
     }
 }
 

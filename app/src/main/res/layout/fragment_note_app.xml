@@ -32,13 +32,14 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/ic_baseline_menu_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/grid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -48,6 +49,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/linear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -60,20 +62,19 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <EditText
+    <SearchView
         android:id="@+id/search_note_app"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_margin="15sp"
+        android:layout_margin="20sp"
         android:layout_marginHorizontal="20dp"
-        android:background="@drawable/rounder2"
-        android:backgroundTint="#191919"
+        android:background="@drawable/rounder"
+        android:backgroundTint="#373636"
         android:drawableStart="@drawable/ic_baseline_search_24"
-        android:drawablePadding="5dp"
-        android:hint="@string/search"
         android:padding="10dp"
+        android:queryHint="@string/search"
         android:textColor="@color/white"
-        android:textColorHint="#746F6F"
+        android:iconifiedByDefault="false"
         app:layout_constraintEnd_toEndOf="@id/card_view_note_app"
         app:layout_constraintStart_toStartOf="@id/card_view_note_app"
         app:layout_constraintTop_toBottomOf="@id/card_view_note_app" />

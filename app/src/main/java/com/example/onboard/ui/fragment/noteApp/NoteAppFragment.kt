@@ -5,8 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.onboard.App
 import com.example.onboard.R
@@ -18,6 +22,7 @@ class NoteAppFragment : Fragment() {
 
     private lateinit var binding: FragmentNoteAppBinding
     private val noteAppAdapter = NoteAppAdapter(this::onItemClick)
+    private lateinit var searchView: SearchView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,15 +34,10 @@ class NoteAppFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupListener()
         initialize()
+        setupListener()
         setList()
-    }
-
-    private fun setupListener() {
-        binding.btnToThirdFragLang.setOnClickListener {
-            findNavController().navigate(R.id.action_noteAppFragment_to_noteAppDetailFragment)
-        }
+        changeLayoutManager()
     }
 
     private fun initialize() {
@@ -47,9 +47,35 @@ class NoteAppFragment : Fragment() {
         }
     }
 
+    private fun changeLayoutManager() {
+        if (App.preferenceHelper.onceBoard) {
+            binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        } else {
+            binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+        }
+    }
+
     private fun setList() {
         App().getInstance()?.noteDao()?.getAll()?.observe(viewLifecycleOwner) { list ->
             noteAppAdapter.setList(list as ArrayList<NoteAppModel>)
+        }
+    }
+
+    private fun setupListener() {
+        binding.btnToThirdFragLang.setOnClickListener {
+            findNavController().navigate(R.id.action_noteAppFragment_to_noteAppDetailFragment)
+        }
+        binding.grid.setOnClickListener {
+            App.preferenceHelper.onceBoard = false
+            binding.recyclerView.layoutManager = GridLayoutManager(requireContext() ,2)
+            binding.grid.isVisible = false
+            binding.linear.isVisible = true
+        }
+        binding.linear.setOnClickListener {
+            App.preferenceHelper.onceBoard = true
+            binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            binding.grid.isVisible = true
+            binding.linear.isVisible = false
         }
     }
 

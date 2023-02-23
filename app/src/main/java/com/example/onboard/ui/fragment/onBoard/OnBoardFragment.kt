@@ -48,7 +48,7 @@ class OnBoardFragment : Fragment() {
             }
         }
         binding.txtStart.setOnClickListener {
-            findNavController().navigate(R.id.action_onBoardFragment_to_registrationFragment)
+            findNavController().navigate(R.id.action_onBoardFragment_to_registrationFragment2)
         }
         binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {

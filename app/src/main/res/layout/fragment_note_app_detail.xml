@@ -12,9 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="21dp"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/arrow"
         app:layout_constraintTop_toTopOf="parent"
@@ -29,35 +29,29 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <TextClock
-        android:id="@+id/tv_clock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/time"
-        android:textColor="#E6E6E6"
-        android:textSize="17sp"
-        app:layout_constraintStart_toEndOf="@id/tv_data"
-        app:layout_constraintTop_toTopOf="@id/tv_data" />
-
     <EditText
         android:id="@+id/edit_text1"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
         android:textColor="@color/white"
-        android:textSize="32sp"
+        android:textSize="27sp"
+        android:layout_marginStart="8dp"
+        android:inputType="text"
         app:layout_constraintTop_toBottomOf="@id/tv_data" />
 
     <EditText
         android:id="@+id/edit_text2"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_width="407dp"
+        android:layout_height="520dp"
         android:gravity="top"
+        android:layout_marginStart="10dp"
         android:textColor="@color/white"
         android:textColorHint="#4DFFFFFF"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/edit_text1" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text1"/>
 
     <TextView
         android:id="@+id/send_data"
