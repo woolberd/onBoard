@@ -10,10 +10,10 @@ import com.example.onboard.models.NoteAppModel
 class NoteAppAdapter(val onItemClick: (model: NoteAppModel) -> Unit) :
     RecyclerView.Adapter<NoteAppAdapter.ViewHolder>() {
 
-    private var list: List<NoteAppModel> = ArrayList()
+    private var list: ArrayList<NoteAppModel> = ArrayList()
 
     fun setList(list: List<NoteAppModel>) {
-        this.list = list
+        this.list = list as ArrayList<NoteAppModel>
         notifyDataSetChanged()
     }
 
@@ -48,6 +48,7 @@ class NoteAppAdapter(val onItemClick: (model: NoteAppModel) -> Unit) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.onBind(list[position])
     }
+
 
     override fun getItemCount(): Int {
         return list.size

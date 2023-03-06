@@ -43,6 +43,7 @@
         android:drawablePadding="10dp"
         android:hint="@string/number"
         android:padding="10dp"
+        android:inputType="number|phone"
         android:textColor="@color/white"
         android:textColorHint="#C3BCBC"
         app:layout_constraintTop_toBottomOf="@id/registration" />
@@ -53,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="20dp"
+        android:inputType="number"
         android:background="@drawable/rounder"
         android:drawableStart="@drawable/ic_baseline_mail_outline_24"
         android:drawablePadding="10dp"
